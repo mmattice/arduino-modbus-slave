@@ -3,7 +3,11 @@
 
 #include <modbus.h>
 #include <modbusDevice.h>
-#include <Wprogram.h>
+#if defined(ARDUINO) && ARDUINO >= 100
+  #include "Arduino.h"
+#else
+  #include "WProgram.h"
+#endif
 
 /* Table of CRC values for high–order byte */
 const byte _auchCRCHi[] = {
